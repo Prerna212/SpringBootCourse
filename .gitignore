@@ -1,0 +1,6 @@
+*.class
+.idea/
+build/
+*.log
+*.log.gz
+out/
