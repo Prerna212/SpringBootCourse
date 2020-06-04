@@ -1,0 +1,2 @@
+insert into user values (101, 'prernaverma@gmail.com', 'prerna', 'verma', 'Developer', '12@%fve', 'prerverm');
+insert into user values (102, 'arshthind@gmail.com', 'Arsh', 'Thind', 'Developer', '3#VRVR', 'thinar');
