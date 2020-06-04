@@ -2,19 +2,24 @@ package com.github.prerna.Controllers;
 
 import com.github.prerna.entities.User;
 import com.github.prerna.exception.UserAlreadyExistsException;
+import com.github.prerna.exception.UserNameNotFoundException;
 import com.github.prerna.exception.UserNotFoundException;
 import com.github.prerna.services.UserService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@Validated
 public class UserController {
     private UserService userService;
 
@@ -28,7 +33,7 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<Void> createUser(@RequestBody User user, UriComponentsBuilder builder) {
+    public ResponseEntity<Void> createUser(@Valid @RequestBody User user, UriComponentsBuilder builder) {
         try {
             userService.createUser(user);
             HttpHeaders headers = new HttpHeaders();
@@ -40,7 +45,7 @@ public class UserController {
     }
 
     @GetMapping("/users/{Id}")
-    public Optional<User> getUserById(@PathVariable("Id") long id) {
+    public Optional<User> getUserById(@PathVariable("Id") @Min(1) long id) {
         try {
             return userService.getUserById(id);
         } catch (UserNotFoundException ex) {
@@ -64,8 +69,11 @@ public class UserController {
     }
 
     @GetMapping("/users/byusername/{userName}")
-    public User getUserByUserName(@PathVariable("userName") String userName) {
-        return userService.getUserByUserName(userName);
+    public User getUserByUserName(@PathVariable("userName") String userName) throws UserNameNotFoundException {
+        User user = userService.getUserByUserName(userName);
+        if (user == null)
+            throw new UserNameNotFoundException("UserName "+userName+"  doesn't exist");
+        return user;
     }
 }
 
