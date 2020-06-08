@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 .idea/
 *.xml
 out/
@@ -6,10 +7,15 @@ out/
 *.bin
 *.lock
 =======
+=======
+>>>>>>> helloWorld
 *.class
 .idea/
 build/
 *.log
 *.log.gz
 out/
+<<<<<<< HEAD
+>>>>>>> helloWorld
+=======
 >>>>>>> helloWorld
