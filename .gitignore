@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 .idea/
 *.xml
 out/
 .gradle/
 *.bin
 *.lock
+=======
+*.class
+.idea/
+build/
+*.log
+*.log.gz
+out/
+>>>>>>> helloWorld
