@@ -5,10 +5,13 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.hateoas.RepresentationModel;
 
 @Entity
 @Table
+@JsonIgnoreProperties({"firstName","lastName"})
 public class User extends RepresentationModel<User> {
 
     @Id
@@ -33,6 +36,7 @@ public class User extends RepresentationModel<User> {
     private String role;
 
     @Column(name = "SSN", length = 50, nullable = false, unique = true)
+    @JsonIgnore
     private String ssn;
 
 
