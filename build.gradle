@@ -23,10 +23,10 @@ dependencies {
     // https://mvnrepository.com/artifact/com.h2database/h2
     compile group: 'com.h2database', name: 'h2', version: '1.4.200'
 
-//// https://mvnrepository.com/artifact/javax.persistence/persistence-api
-//    compile group: 'javax.persistence', name: 'persistence-api', version: '1.0'
-
     // https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api
     compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-hateoas
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-hateoas', version: '2.2.7.RELEASE'
 
 }

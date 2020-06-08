@@ -5,6 +5,7 @@ import com.github.prerna.exception.UserAlreadyExistsException;
 import com.github.prerna.exception.UserNameNotFoundException;
 import com.github.prerna.exception.UserNotFoundException;
 import com.github.prerna.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ import java.util.Optional;
 public class UserController {
     private UserService userService;
 
+    @Autowired
     UserController(UserService userService) {
         this.userService = userService;
     }

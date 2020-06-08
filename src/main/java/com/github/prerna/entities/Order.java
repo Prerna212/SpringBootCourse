@@ -1,12 +1,13 @@
 package com.github.prerna.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Order extends RepresentationModel<Order> {
 
     @Id
     @GeneratedValue
@@ -17,8 +18,8 @@ public class Order {
     @JsonIgnore
     private User user;
 
-    public Order( ) {
-super();
+    public Order() {
+        super();
     }
 
     public long getOrderId() {
