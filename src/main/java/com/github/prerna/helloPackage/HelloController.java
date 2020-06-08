@@ -20,4 +20,9 @@ public class HelloController {
     public UserDetails helloWorldBean(){
         return new UserDetails("prerna", "verma", "bangalore");
     }
+
+    @GetMapping("hello-int")
+    public String getMessagesInI18NFormat(){
+        return "Hello world I18N";
+    }
 }
