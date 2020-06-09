@@ -49,6 +49,9 @@ public class User extends RepresentationModel<User> {
     @JsonView(Views.Internal.class)
     private String ssn;
 
+    @Column(name = "ADDRESS")
+    private String address;
+
     @OneToMany(mappedBy = "user")
     @JsonView(Views.Internal.class)
     private List<Order> orders;
@@ -65,13 +68,14 @@ public class User extends RepresentationModel<User> {
     public User() {
     }
 
-    public User(String userName, String firstName, String lastName, String email, String role, String ssn) {
+    public User(String userName, String firstName, String lastName, String email, String role, String ssn, String address) {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.role = role;
         this.ssn = ssn;
+        this.address = address;
     }
 
     public long getId() {
@@ -130,7 +134,16 @@ public class User extends RepresentationModel<User> {
         this.ssn = ssn;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     //this is optional may need for bean logging
+
     @Override
     public String toString() {
         return "User{" +
@@ -141,6 +154,8 @@ public class User extends RepresentationModel<User> {
                 ", email='" + email + '\'' +
                 ", role='" + role + '\'' +
                 ", ssn='" + ssn + '\'' +
+                ", address='" + address + '\'' +
+                ", orders=" + orders +
                 '}';
     }
 }
