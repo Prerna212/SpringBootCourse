@@ -25,7 +25,7 @@ public class UserCustomHeaderVersioningController {
         @Autowired
         private ModelMapper modelMapper;
 
-        @GetMapping(value = "/{Id}", headers = "API-VERSION=1")
+        @GetMapping(value = "/{Id}", headers = "API-VERSION=9")
         public UserDtoV1 getUserById(@PathVariable("Id") @Min(1) long id) throws UserNotFoundException {
             Optional<User> userOptional = userService.getUserById(id);
 
@@ -40,7 +40,7 @@ public class UserCustomHeaderVersioningController {
             return userDtoV1;
         }
 
-        @GetMapping(value = "/{Id}", headers = "API-VERSION=2")
+        @GetMapping(value = "/{Id}", headers = "API-VERSION=8")
         public UserDtoV2 getUserById2(@PathVariable("Id") @Min(1) long id) throws UserNotFoundException {
             Optional<User> userOptional = userService.getUserById(id);
 
